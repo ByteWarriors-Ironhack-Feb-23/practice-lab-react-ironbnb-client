@@ -1,3 +1,12 @@
 .App {
   text-align: center;
 }
+
+header a {
+  text-decoration: none;
+  color: black;
+}
+
+header a.active {
+  color: gray;
+}
