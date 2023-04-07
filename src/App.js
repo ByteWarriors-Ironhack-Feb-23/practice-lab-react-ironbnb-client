@@ -6,6 +6,7 @@ import Homepage from "./components/Homepage";
 import ApartmentList from "./components/ApartmentsList";
 import ApartmentDetails from "./components/ApartmentDetails";
 import CreateApartment from "./components/CreateApartment"
+import CreateApartments from "./components/CreateApartment";
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
         <Route path="/" element={<Homepage/>} />
         <Route path="/apartments" element={<ApartmentList/>} />
         <Route path={"/apartments/:id"} element={<ApartmentDetails />} />
-        <Route path={"/apartments/create"} element={<CreateApartment/>} />
+        <Route path={"/apartments/create"} element={<CreateApartments/>} />
       </Routes>
 
     </div>

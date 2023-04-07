@@ -24,10 +24,10 @@ function ApartmentList(){
             {apartmentsArr.map((apartment)=>{
 
                 return(
-                    <div>
+                    <div className="apartment" key={apartment.id}>
                         <h2>{apartment.title}</h2>
-                        <img src={apartment.im} alt="" />
-                        <h3>Price per day: {apartment.pricePerDay}</h3>
+                        <img src={apartment.img} alt="" />
+                        <h3>Price per day: {apartment.pricePerDay} $</h3>
 
                     </div>
                 )
@@ -41,9 +41,9 @@ function ApartmentList(){
     }
 
     return (
-        <>
+        <div  className="apartment-container">
             {apartmentsArr ? renderApartments() : <h1> Loading </h1>}
-        </>
+        </div>
 
     )
 }
