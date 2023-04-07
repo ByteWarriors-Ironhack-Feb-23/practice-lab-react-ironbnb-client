@@ -22,7 +22,7 @@ function ApartmentsList() {
 
                 {apartmentsArr.map((apartment) => {
                     return (
-                        <div className="apartment">
+                        <div className="apartment" key={apartment.id}>
                             <h2>{apartment.title}</h2>
                             <img src={apartment.img} alt={apartment.title} />
                             <h3>Price per Day: {apartment.pricePerDay}$</h3>
