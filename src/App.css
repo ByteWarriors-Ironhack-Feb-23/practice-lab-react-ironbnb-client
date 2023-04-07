@@ -10,3 +10,19 @@ header a {
 header a.active {
   color: gray;
 }
+
+.apartment {
+  width: 20vw;
+  margin: 1em;
+  background-color: #bababa;
+}
+
+.apartment img {
+  width: 100%;
+}
+
+.apartments-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
