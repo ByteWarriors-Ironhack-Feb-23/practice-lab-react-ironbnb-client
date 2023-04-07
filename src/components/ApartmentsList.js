@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 const ApartmentsList = (props) => {
@@ -21,6 +22,7 @@ const ApartmentsList = (props) => {
           return (
             <div key={index}>
               <h3>{apartment.title}</h3>
+              <Link to={apartment._id}> more details </Link>
             </div>
           );
         })}
