@@ -4,8 +4,20 @@ import { Link, useParams } from "react-router-dom";
 function ApartmentDetails(props) {
     const { apartmentsId } = useParams();
 
-    const apartmentDetails = props.apartments.find(apartment => apartment._id === apartmentsId)
-    console.log(apartmentDetails);
+    let AppartmentArr;
+
+    axios
+        .get(process.env.REACT_APP_APIURL + "/apartments")
+        .then((apartmentsFromAPI) => {
+            AppartmentArr = apartmentsFromAPI;
+
+        })
+        .catch(e => { console.log(e) })
+
+
+
+    const apartmentDetails = AppartmentArr.apartments.find(apartment => apartment._id === apartmentsId)
+
     return (
 
         <div>

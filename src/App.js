@@ -25,7 +25,7 @@ function App() {
     axios
       .get(process.env.REACT_APP_APIURL + "/apartments")
       .then((apartmentsFromAPI) => {
-        console.log(apartmentsFromAPI);
+
         setApartments(apartmentsFromAPI.data);
 
       })
