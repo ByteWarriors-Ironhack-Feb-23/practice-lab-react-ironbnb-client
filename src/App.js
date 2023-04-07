@@ -1,11 +1,11 @@
-import ironhackersImg from "./assets/ironhackers.avif"
-import './App.css';
+import ironhackersImg from "./assets/ironhackers.avif";
+import "./App.css";
+import NavBar from "./components/NavBar";
 
 function App() {
   return (
     <div className="App">
-      <h1>Welcome</h1>
-      <img src={ironhackersImg} alt="ironhackers" />
+      <NavBar />
     </div>
   );
 }
