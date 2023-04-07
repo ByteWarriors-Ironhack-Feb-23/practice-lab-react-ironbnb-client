@@ -8,8 +8,18 @@ function ApartmentsList() {
 
 
 
+    /* useEffect(() => {
+        axios.get(`https://ironbnb-m3.herokuapp.com/apartments`)
+            .then(response => {
+                setApartments(response.data);
+            })
+            .catch(e => {
+                console.log("error getting apartments from API...", e);
+            })
+    }, []); */
+
     useEffect(() => {
-        axios.get(process.env.REACT_APP_APIURL + "/apartments/")
+        axios.get(process.env.REACT_APP_APIURL + "/apartments")
             .then(response => {
                 setApartments(response.data);
             })
@@ -27,12 +37,12 @@ function ApartmentsList() {
               return (
                 <section key={index} className="box">
                   <h1>{apartmentDetails.title} </h1>
+                  <img src={apartmentDetails.img} alt={apartmentDetails.title} />
                   <Link to={`/apartments/${apartmentDetails._id}`}>More details</Link>
                 </section>
               );
             })
-          ) : (
-            <p>loading....</p>
+          ) : (<p>loading....</p>
           )}
         </div>
       </>
