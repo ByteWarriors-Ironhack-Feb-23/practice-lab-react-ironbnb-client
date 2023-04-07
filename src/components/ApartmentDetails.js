@@ -1,36 +1,42 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 
-function ApartmentsDetails () {
+function ApartmentDetails () {
 
-const url="https:ironbnb-m3.herokuapp.com";
+
 const {apartmentId} = useParams();
 
-const [apartmentDetails, setApartmentDetails] = useState([]);
+const [apartment, setApartment] = useState(null);
 
 useEffect(() => {
-  axios.get(url + `/apartments/${apartmentId}`)
-    .then(response => {
-      
-      setApartmentDetails(response.data)
+  axios.get( `https://ironbnb-m3.herokuapp.com/apartments/${apartmentId}`)
+    .then((response) => {
+      console.log(response)
+      setApartment(response.data)
     })
     .catch(e => {
       console.log("error getting apartment list from API", e)
     })
 }, [apartmentId])
 
-
+  const renderApartment = () => {
+    return(
+      <div>
+      <h1>This is the apartment details page</h1>
+    <h2>{apartment.title}</h2>
+    <img src={apartment.img} alt={apartment.title}></img>
+    <h2>{apartment.pricePerDay}</h2>
+    </div>
+    )
+  }
   return (
     <div>
-    <h1>This is the apartment details page</h1>
-    <h2>{apartmentDetails.title}</h2>
-    <img src={apartmentDetails.img} alt={apartmentDetails.title}></img>
-    <h2>{apartmentDetails.pricePerDay}</h2>
+     {apartment ? renderApartment() : <p> loading...</p>}
+     <Link to={"/apartments"}>Go back to apartments</Link>
     </div>
-
   )
 }
 
-export default ApartmentsDetails;
+export default ApartmentDetails;

@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { NavLink } from "react-router-dom";
+
 
 function ApartmentsList () {
   const [apartments, setApartments] = useState([]);
@@ -22,6 +24,7 @@ function ApartmentsList () {
         return (
           <div key={apartment._id}>
             <h1>{apartment.title}</h1>
+            <NavLink to={`/apartments/+ ${apartment._id}`}>See details</NavLink>
           </div>
         )
       })}
