@@ -1,3 +1,10 @@
 .App {
   text-align: center;
 }
+
+.nav a {
+  color: blue;
+}
+.nav a.active {
+  color: orange;
+}
