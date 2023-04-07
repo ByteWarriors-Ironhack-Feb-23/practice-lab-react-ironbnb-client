@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function ApartmentsList() {
 
@@ -22,10 +23,11 @@ function ApartmentsList() {
 
                 {apartmentsArr.map((apartment) => {
                     return (
-                        <div className="apartment" key={apartment.id}>
+                        <div className="apartment" key={apartment._id}>
                             <h2>{apartment.title}</h2>
                             <img src={apartment.img} alt={apartment.title} />
                             <h3>Price per Day: {apartment.pricePerDay}$</h3>
+                            <Link to={"/apartments/" + apartment._id}>See Details</Link>
                         </div>
                     );
                 })}
