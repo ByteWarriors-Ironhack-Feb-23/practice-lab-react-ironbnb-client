@@ -5,7 +5,7 @@ import axios from "axios";
 function ApartmentDetails(props) {
   const { apartmentId } = useParams();
 
-  const [ApartmentDetails, setApartmentDetails] = useState([]);
+  const [apartment, setApartment] = useState(null);
 
   console.log("apartmentId..", apartmentId);
 
@@ -14,7 +14,7 @@ function ApartmentDetails(props) {
       .get(process.env.REACT_APP_APIURL + "/apartments/" + apartmentId)
       .then((response) => {
         console.log("response from API details", response.data);
-        setApartmentDetails(response.data);
+        setApartment(response.data);
       })
       .catch((e) => {
         console.log("error getting apartment details from API...", e);
@@ -23,9 +23,15 @@ function ApartmentDetails(props) {
 
   return (
     <>
-      <h1>{ApartmentDetails.title}</h1>{" "}
-      <h2>Price per Day: {ApartmentDetails.pricePerDay}</h2>
-      <p>{ApartmentDetails.</p>
+      {apartment ? (
+        <>
+          <h1>{apartment.title}</h1>
+          <h2>Price per Day: {apartment.pricePerDay}</h2>
+          <img src={apartment.img} alt="" />
+        </>
+      ) : (
+        "loading...."
+      )}
     </>
   );
 }

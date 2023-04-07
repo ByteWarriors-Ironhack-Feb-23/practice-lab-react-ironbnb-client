@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 function CreateApartment(props) {
@@ -15,7 +14,6 @@ function CreateApartment(props) {
     };
     props.callbackToAdd(newApartment);
   };
-  //   const navigate = useNavigate();
 
   return (
     <div>
