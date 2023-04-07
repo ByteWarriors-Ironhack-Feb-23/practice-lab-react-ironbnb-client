@@ -17,9 +17,9 @@ const ApartmentsList = (props) => {
   const renderList = () => {
     return (
       <section>
-        {apartmentsList.map((apartment) => {
+        {apartmentsList.map((apartment, index) => {
           return (
-            <div key={apartment.id}>
+            <div key={index}>
               <h3>{apartment.title}</h3>
             </div>
           );
