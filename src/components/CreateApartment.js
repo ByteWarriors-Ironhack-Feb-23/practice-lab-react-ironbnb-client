@@ -8,6 +8,7 @@ const CreateApartment = (props) => {
 
   const [title, setTitle] = useState("");
   const [pricePerDay, setPricePerDay] = useState("");
+  const [img, setImg] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -15,7 +16,7 @@ const CreateApartment = (props) => {
     const newApartment = {
       title: title,
       pricePerDay: pricePerDay,
-      img: "https://via.placeholder.com/600x400?text=APARTMENT",
+      img: img ? img : "https://via.placeholder.com/600x400?text=APARTMENT",
     };
 
     axios
@@ -43,6 +44,21 @@ const CreateApartment = (props) => {
               value={title}
               onChange={(event) => {
                 setTitle(event.target.value);
+              }}
+            />
+          </label>
+        </div>
+
+        <div className="form-group mt-3">
+          <label className="white-text text-start">
+            Image URL:
+            <input
+              className="form-control"
+              type="text"
+              name="title"
+              value={img}
+              onChange={(event) => {
+                setImg(event.target.value);
               }}
             />
           </label>
