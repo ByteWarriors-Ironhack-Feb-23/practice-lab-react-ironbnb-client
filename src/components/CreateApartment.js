@@ -13,7 +13,6 @@ function CreateApartment() {
 
     axios.post(`${process.env.REACT_APP_APIURL}/apartments`,{title:title,img:image})
     .then(response => {
-        console.log("Apartment created: " ,response)
         navigate("/apartmentlist")
     })
     .catch(error=>console.log(error))

@@ -3,7 +3,6 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 function ApartmentList() {
-  // const baseURL = process.env.REACT_APP_APIURL
   const [apartments, setApartments] = useState(null);
 
   useEffect(() => {
@@ -14,7 +13,6 @@ function ApartmentList() {
       })
       .catch((error) => console.log("Error from data API... ", error));
   }, []);
-  console.log(apartments);
   return (
     <>
       <h1>ApartmentList</h1>

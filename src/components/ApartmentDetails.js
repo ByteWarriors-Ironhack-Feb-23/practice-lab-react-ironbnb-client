@@ -5,8 +5,6 @@ import { useEffect, useState } from "react";
 function ApartmentDetails() {
   const { id } = useParams();
   const [apartment, setApartment] = useState(null);
-  console.log("ID: ",id)
-  console.log(id)
   useEffect(() => {
     axios
       .get(`${process.env.REACT_APP_APIURL}/apartments/${id}`)
@@ -15,11 +13,9 @@ function ApartmentDetails() {
       })
       .catch((error) => console.log("Error from data API... ", error));
   }, [id]);
-  console.log(`URL: ${process.env.REACT_APP_APIURL}/apartments/${id}`)
   return (
     <>
       {apartment ? <h1>{apartment.title}  <br /><img src={apartment.img} alt={apartment.title} /></h1>: "Loading...."}
-      
     </>
   );
 }

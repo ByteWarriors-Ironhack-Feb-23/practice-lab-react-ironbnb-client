@@ -5,11 +5,8 @@ return (
     <nav>
         <NavLink to="/">Home</NavLink> |
         <NavLink to="/apartmentlist">ApartmentList</NavLink> |
-        {/* <NavLink to="/apartmentdetails">ApartmentDetails</NavLink> | */}
         <NavLink to="/createapartment">CreateApartment</NavLink> |
       </nav>
-)
-}
-
+)}
 
 export default NavBar
