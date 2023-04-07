@@ -9,13 +9,23 @@ header a{
   color: red
 }
 
-.apartment{
-  background-color: grey;
-}
-
 .apartment-container{
   display: flex;
-  justify-content: wrap;
+  flex-direction: row;
+  flex-wrap: wrap;
+  row-gap: 2em;
+  justify-content: space-evenly;
   
+  
+}
+.apartment{
+  background-color: grey;
+  width: 33vw
+}
 
+
+
+img{
+  width: 100%
+  
 }
