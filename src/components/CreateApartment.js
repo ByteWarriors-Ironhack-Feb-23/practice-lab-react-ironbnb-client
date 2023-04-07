@@ -1,10 +1,12 @@
 import axios from 'axios';
 import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
 function CreateApartment(){
     const [img, setImage] = useState('');
     const [title, setTitle] = useState('');
     const [pricePerDay, setPricePerDay] = useState('');
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -14,15 +16,25 @@ function CreateApartment(){
             img: img,
             pricePerDay: pricePerDay,
         };
-
+        //console.log to check 
         axios
-        .post(process.env.REACT_APP_APIURL, newApartment)
+        .post(`${process.env.REACT_APP_APIURL}/apartments` , newApartment)
         .then( response => {
-            console.log(response);
+            console.log("this is my response", response);
+          
         })
+          
         .catch( err => console.log("error creating new apartment", err))
 
+
+        //clear the form
+        setImage("");
+        setTitle("");
+        setPricePerDay("");
+        navigate("/apartments"); //redirect to the route
+        
     }
+    
 
 
     return(
@@ -54,7 +66,7 @@ function CreateApartment(){
         />
   
         
-        <button type="submit">Add Apartment</button>
+        <button type='submit'>Add Apartment</button>
       </form>
         </div>
     )
