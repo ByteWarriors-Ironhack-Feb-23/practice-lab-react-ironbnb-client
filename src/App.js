@@ -18,6 +18,10 @@ function App() {
 
 
   useEffect(() => {
+    resetApartments();
+  }, [])
+
+  const resetApartments = () => {
     axios
       .get(process.env.REACT_APP_APIURL + "/apartments")
       .then((apartmentsFromAPI) => {
@@ -26,13 +30,13 @@ function App() {
 
       })
       .catch(e => { console.log(e) })
-  }, [])
+  }
 
   return (
     <div className="App">
       <Navbar />
       <Routes>
-        <Route path='/apartments/create' element={<CreateApartment />}></Route>
+        <Route path='/apartments/create' element={<CreateApartment resetApartments={resetApartments} />}></Route>
         <Route path="/apartments" element={<ApartmentsList apartments={apartments}></ApartmentsList>}></Route>
         <Route path='/apartments/:apartmentsId' element={<ApartmentDetails apartments={apartments}></ApartmentDetails>}></Route>
 

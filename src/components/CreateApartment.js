@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
+
+
+
+
 function CreateApartment(props) {
     const [title, setTitle] = useState('');
     const navigate = useNavigate();
@@ -15,8 +19,8 @@ function CreateApartment(props) {
 
         axios
             .post(`${process.env.REACT_APP_APIURL}/apartments`, apartmentToBeCreated)
-            .then(() => {
-
+            .then((e) => {
+                props.resetApartments();
                 navigate('/apartments');
             })
             .catch((e) => {
