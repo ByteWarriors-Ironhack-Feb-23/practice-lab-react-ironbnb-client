@@ -1,20 +1,42 @@
+import React, { useState } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
+function CreateApartment(props) {
+    const [title, setTitle] = useState('');
+    const navigate = useNavigate();
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
 
+        const apartmentToBeCreated = {
+            title: title,
+        };
 
-function CreateApartment() {
+        axios
+            .post(`${process.env.REACT_APP_APIURL}/apartments`, apartmentToBeCreated)
+            .then(() => {
 
-    <form action={`${process.env.REACT_APP_APIURL}/apartments`} method="POST" >
-        <label >Title:
-            <input type="text" />
-        </label>
+                navigate('/apartments');
+            })
+            .catch((e) => {
+                console.log(e);
+            });
+    };
 
+    const handleTitleChange = (e) => {
+        setTitle(e.target.value);
+    };
 
-
-    </form >
-
-
+    return (
+        <form onSubmit={handleSubmit}>
+            <label>
+                Title:
+                <input type="text" value={title} onChange={handleTitleChange} />
+            </label>
+            <button type="submit">Create Apartment</button>
+        </form>
+    );
 }
-
 
 export default CreateApartment;

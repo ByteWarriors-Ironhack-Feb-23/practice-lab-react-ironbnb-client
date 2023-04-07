@@ -6,12 +6,16 @@ import { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import axios from 'axios';
 import ApartmentDetails from './components/ApartmentDetails';
+import CreateApartment from './components/CreateApartment';
 
 
 
 function App() {
 
   const [apartments, setApartments] = useState([]);
+
+
+
 
   useEffect(() => {
     axios
@@ -28,8 +32,10 @@ function App() {
     <div className="App">
       <Navbar />
       <Routes>
+        <Route path='/apartments/create' element={<CreateApartment />}></Route>
         <Route path="/apartments" element={<ApartmentsList apartments={apartments}></ApartmentsList>}></Route>
         <Route path='/apartments/:apartmentsId' element={<ApartmentDetails apartments={apartments}></ApartmentDetails>}></Route>
+
       </Routes>
 
       <h1>SOMETHING</h1>
