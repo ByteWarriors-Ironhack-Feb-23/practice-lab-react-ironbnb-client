@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function ApartmentsList() {
   const baseURL = "https://ironbnb-m3.herokuapp.com";
@@ -36,6 +37,7 @@ function ApartmentsList() {
             ""
           )}
           <p>Price: {apartment.pricePerDay}</p>
+          <Link to={"./"+apartment._id}>More Detail</Link>
         </div>
       );
     });

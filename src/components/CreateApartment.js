@@ -3,21 +3,13 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 function CreateApartment() {
   //set State
+
+  console.log("test begining....");
+
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
   const [imgURL, setImgURL] = useState("");
   const navigate = useNavigate();
-  const postNewApartment = async (data) => {
-    try {
-      const res = await axios.post(
-        "https://ironbnb-m3.herokuapp.com/apartments",
-        data
-      );
-      console.log(res.statusText);
-    } catch (e) {
-      console.error(e);
-    }
-  };
   //handle Submission
   const handleSubmit = (element) => {
     element.preventDefault();
@@ -27,9 +19,13 @@ function CreateApartment() {
       pricePerDay: price,
       title: title,
     };
-    postNewApartment(newApartement);
-    navigate(`/apartments`);
+    axios
+      .post("https://ironbnb-m3.herokuapp.com/apartments", newApartement)
+      .then((res) => {
+        navigate(`/apartments/${res.data._id}`);
+      });
   };
+
   return (
     <div>
       <h1>Create a New Apartment</h1>
