@@ -16,7 +16,7 @@ function ApartmentDetails() {
             .catch((err) => {
                 console.log(err);
             });
-    });
+    }, [apartmentId]);
 
     const renderApartment = () => {
         return (
