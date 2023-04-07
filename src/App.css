@@ -8,3 +8,14 @@ header a{
 .active{
   color: red
 }
+
+.apartment{
+  background-color: grey;
+}
+
+.apartment-container{
+  display: flex;
+  justify-content: wrap;
+  
+
+}
