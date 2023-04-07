@@ -16,7 +16,7 @@ function App() {
 
   const loadApartments = () => {
     axios
-      .get(`https://ironbnb-m3.herokuapp.com/apartments`)
+      .get(process.env.REACT_APP_APIURL + '/apartments')
       .then((apartmentsArr) => {
         setApartments(apartmentsArr.data);
       })
@@ -33,22 +33,22 @@ function App() {
     <div className="App">
 
       <Navbar />
-      
+
       <Routes>
-        <Route path={"/"} element={ <HomePage /> } />
-        <Route path={"/apartments"} 
-        element={
-          apartments 
-          ? <ApartmentsList apartments={apartments} />
-          : <div className='spinner-border'></div>
-        } />
-        <Route path={"/apartments/create"} element={ <CreateApartment callbackToLoadApartments={loadApartments} /> } />
-        <Route path={"/apartments/:apartmentId"} 
-        element={
-          apartments 
-          ? <ApartmentDetails apartments={apartments} />
-          : <div className='spinner-border'></div>
-        } />
+        <Route path={"/"} element={<HomePage />} />
+        <Route path={"/apartments"}
+          element={
+            apartments
+              ? <ApartmentsList apartments={apartments} />
+              : <div className='spinner-border'></div>
+          } />
+        <Route path={"/apartments/create"} element={<CreateApartment callbackToLoadApartments={loadApartments} />} />
+        <Route path={"/apartments/:apartmentId"}
+          element={
+            apartments
+              ? <ApartmentDetails apartments={apartments} />
+              : <div className='spinner-border'></div>
+          } />
       </Routes>
 
     </div>

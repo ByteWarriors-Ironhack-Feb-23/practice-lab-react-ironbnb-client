@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import '../App.css';
@@ -19,7 +19,7 @@ const CreateApartment = (props) => {
     };
 
     axios
-      .post(`https://ironbnb-m3.herokuapp.com/apartments`, newApartment)
+      .post(process.env.REACT_APP_APIURL + '/apartments', newApartment)
       .then((response) => {
         props.callbackToLoadApartments();
         navigate("/apartments");
@@ -34,35 +34,35 @@ const CreateApartment = (props) => {
       <h1>ADD YOUR HOUSE 🏠</h1>
       <form onSubmit={handleSubmit}>
         <div className="form-group mt-3">
-        <label className="white-text text-start">
-          Title:
-          <input
-            className="form-control"
-            type="text"
-            name="title"
-            value={title}
-            onChange={(event) => {
-              setTitle(event.target.value);
-            }}
-          />
-        </label>
+          <label className="white-text text-start">
+            Title:
+            <input
+              className="form-control"
+              type="text"
+              name="title"
+              value={title}
+              onChange={(event) => {
+                setTitle(event.target.value);
+              }}
+            />
+          </label>
         </div>
-        
+
         <div className="form-group mt-3">
-        <label className="white-text text-start">
-          Price Per Day {"in €"}:
-          <input
-            className="form-control"
-            type="number"
-            name="pricePerDay"
-            value={pricePerDay}
-            onChange={(event) => {
-              setPricePerDay(event.target.value);
-            }}
-          />
-        </label>
+          <label className="white-text text-start">
+            Price Per Day {"in €"}:
+            <input
+              className="form-control"
+              type="number"
+              name="pricePerDay"
+              value={pricePerDay}
+              onChange={(event) => {
+                setPricePerDay(event.target.value);
+              }}
+            />
+          </label>
         </div>
-        
+
         <button className="btn btn-success mt-5">ADD YOUR APARTMENT</button>
       </form>
     </section>
