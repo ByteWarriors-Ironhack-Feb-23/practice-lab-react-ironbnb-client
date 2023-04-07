@@ -1,3 +1,60 @@
+body {
+  background-color: #333;
+}
+
 .App {
   text-align: center;
+}
+
+.App .list-container {
+  display: flex;
+  direction: column;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+}
+
+.App h1 {
+  color: white;
+}
+
+.App .white-text {
+  color: white;
+}
+
+.App .links-span {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.App .link-in-homepage {
+  text-decoration: none;
+  background-color: #333;
+  border-radius: 5px;
+  margin: 10px;
+  color: white;
+  padding: 5px 10px;
+  box-shadow: 0 4px 8px 0 rgb(152, 127, 11);
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.card {
+  width: 30%;
+  border: 1px solid #333;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 2px rgba(240, 204, 0, 0.87);
+  transition: 0.3s;
+  background-color: #292424;
+  color: white;
+}
+
+.App .badge {
+  background-color: rgb(245, 184, 18);
+  color: #333;
+  margin-top: 30px;
+  font-size: 1.3rem;
 }
