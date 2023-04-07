@@ -1,11 +1,18 @@
 import { Link } from "react-router-dom";
 
 function ApartmentsList(props) {
-  console.log("appt list from props", props.apartmentsList);
   return (
     <div>
       {props.apartmentsList.map((appt) => {
-        return <Link key={appt.id}>{appt.title}</Link>;
+        // console.log("each appt....", appt);
+        return (
+          <div>
+            <Link key={appt.id} to={"/apartments/" + appt._id}>
+              {appt.title}
+            </Link>
+            ;
+          </div>
+        );
       })}
     </div>
   );
