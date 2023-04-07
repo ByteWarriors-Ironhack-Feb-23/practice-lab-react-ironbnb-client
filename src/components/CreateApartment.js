@@ -16,7 +16,7 @@ function CreateApartment(){
         };
 
         axios
-        .post("https://ironbnb-m3.herokuapp.com/apartments", newApartment)
+        .post(process.env.REACT_APP_APIURL, newApartment)
         .then( response => {
             console.log(response);
         })
